@@ -1,0 +1,1 @@
+convert -sharpen 0x1.2 -resize 30% -quality 95%

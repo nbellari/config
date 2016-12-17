@@ -1,0 +1,30 @@
+Purge the memory cache for the OS
+    free && sync && echo 3 > /proc/sys/vm/drop_caches && free
+
+Convert a python interactive session to python script
+    sed  's/^\([^>.]\)/#\1/;s/^>>> //;s/^\.\.\./  /'
+
+Slow down the screen output
+    ls -lart|lolcat -a
+
+Find all the active IP addresses in a network
+    nmap -sP 192.168.1.0/24; arp-scan --localnet  | grep "192.168.1.[0-9]* *ether"
+
+Multiplication Table
+    for y in {1..10}; do for x in {1..10}; do echo -n "| $x*$y=$((y*x)) "; done; echo; done|column -t
+ 
+Get the first 3 octets of your IP address
+    ifconfig | awk -F: '/inet addr:/ { sub(/\.[^.]+$/, "", $2); if (!seen[$2]++ && $2 != "127.0.0") print $2 }'
+
+print everything after last slash
+    echo `pwd` | sed 's:.*/::'
+
+Print the outgoing IP address
+    curl -s httpbin.org/ip | jq -r .origin
+
+Find the name of the package which installed a command
+    dpkg -S "$(readlink -e $(which w))" | cut -d ':' -f 1
+
+Cherry pick selected commits to the branch
+    git cherry-pick <super-long-hash-here>
+    
