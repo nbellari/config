@@ -28,3 +28,5 @@ Find the name of the package which installed a command
 Cherry pick selected commits to the branch
     git cherry-pick <super-long-hash-here>
     
+Delete files of empty size
+find /tmp -size  0 -print0 |xargs -0 rm

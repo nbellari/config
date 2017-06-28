@@ -1,0 +1,4 @@
+* To format a line according to textwidth
+    - set textwidth=65
+    - gqq "to format one line
+    - gqG "to format till the end of file
