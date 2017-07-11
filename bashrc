@@ -245,7 +245,7 @@ function fdel()
 
 alias kamet="ssh nagp@192.168.1.5"
 alias kamet="ssh nagp@192.168.1.5"
-alias k10="ssh nagp@192.168.1.6"
+alias k10="ssh nagp@192.168.1.10"
 alias sdk="cd /home/nagp/development/bcm-sdk/sdk-all-6.5.5"
 alias a4="ssh root@46.101.178.11"
 alias ec="ssh root@192.168.1.143"
@@ -254,7 +254,7 @@ alias w100="ssh root@192.168.1.244"
 alias w100-2="ssh root@192.168.1.247"
 alias w100t="telnet 192.168.1.7 2002"
 alias w100t2="telnet 192.168.1.7 2001"
-alias rkamet="ssh -p 2022 nagp@nd.rtbrick.com"
+alias rkamet="ssh -p 2022 nagp@nandadevi2.rtbrick.com"
 alias rk10="ssh -p 2023 nagp@nd.rtbrick.com"
 alias london="ssh nagp@london"
 alias paris="ssh nagp@paris"
@@ -272,3 +272,22 @@ parse_git_branch() {
 
 export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] \D{%F %T} \$\n[-] "
 
+function stop_lxc()
+{
+    for i in $lxc_list;
+    do
+        sudo lxc-stop -n $i
+        echo "stopped $i .."
+    done
+}
+
+function start_lxc()
+{
+    for i in $lxc_list;
+    do
+        sudo lxc-start -d -n $i
+        echo "started $i .."
+    done
+}
+
+export PATH=${PATH}:github/config/rfc2kindle

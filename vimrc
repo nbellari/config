@@ -25,3 +25,4 @@ map <F9> :set noautoindent nocindent<CR>
 map <F10> :set autoindent cindent<CR>
 set hlsearch
 set tags=./tags;/
+set textwidth=65
