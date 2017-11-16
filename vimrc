@@ -26,3 +26,4 @@ map <F10> :set autoindent cindent<CR>
 set hlsearch
 set tags=./tags;/
 set textwidth=65
+map <F10> :! cat % \| jq .<CR>

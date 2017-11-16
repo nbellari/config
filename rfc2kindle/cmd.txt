@@ -1,0 +1,2 @@
+./rfc2kindle.py -i rfcxxx.txt -f /usr/share/fonts/X11/Type1/c0419bt_.pfb
+(search for a font file with fc-list | grep xyz)

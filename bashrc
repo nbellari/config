@@ -246,7 +246,7 @@ function fdel()
 alias kamet="ssh nagp@192.168.1.5"
 alias kamet="ssh nagp@192.168.1.5"
 alias k10="ssh nagp@192.168.1.10"
-alias sdk="cd /home/nagp/development/bcm-sdk/sdk-all-6.5.5"
+alias sdk="cd /home/nagp/development/bcm-sdk/sdk-all-6.5.9"
 alias a4="ssh root@46.101.178.11"
 alias ec="ssh root@192.168.1.143"
 alias ect="telnet 192.168.1.7 2004"
@@ -254,7 +254,7 @@ alias w100="ssh root@192.168.1.244"
 alias w100-2="ssh root@192.168.1.247"
 alias w100t="telnet 192.168.1.7 2002"
 alias w100t2="telnet 192.168.1.7 2001"
-alias rkamet="ssh -p 2022 nagp@nandadevi2.rtbrick.com"
+alias rkamet="ssh -p 2022 nagp@nandadevi.rtbrick.com"
 alias rk10="ssh -p 2023 nagp@nd.rtbrick.com"
 alias london="ssh nagp@london"
 alias paris="ssh nagp@paris"
@@ -265,6 +265,8 @@ alias rebash="source ~/.bashrc"
 alias cpbash="scp nagp@192.168.1.188:.bashrc ~/.bashrc"
 alias bcm="cd ~/development/libfwdd-broadcom"
 alias gdbc="sudo gdb /usr/local/bin/bd"
+alias 5912="ssh root@192.168.1.144"
+alias 7712="ssh root@192.168.1.143"
 
 parse_git_branch() {
          git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
@@ -290,4 +292,28 @@ function start_lxc()
     done
 }
 
-export PATH=${PATH}:github/config/rfc2kindle
+export PATH=${PATH}:~/github/config/rfc2kindle
+
+function rfc2mobi()
+{
+    rfcNumber=$1
+    cwd=`pwd`
+
+    if [[ -z $rfcNumber ]];
+    then
+        echo "Usage rfc2mobi <rfc-number>"
+        return
+    fi
+
+    wget http://www.ietf.org/rfc/rfc${rfcNumber}.txt
+    cd ~/github/config/rfc2kindle
+    rfc2kindle.py -f /usr/share/cups/fonts/FreeMono.ttf -i ${cwd}/rfc${rfcNumber}.txt
+    cd ~-
+    rm -vf *.html
+}
+
+export SDK="/home/nagp/development/bcm-sdk/sdk-all-6.5.9"
+alias utor="/opt/utorrent-server-alpha-v3_3/utserver -settingspath /opt/utorrent-server-alpha-v3_3/"
+alias 55011="ssh root@192.168.1.145"
+alias qmx="cd /home/ubuntu/development/libfwdd-broadcom-qmx"
+alias hv="ssh -l lab access.bastelbude.net -p 12345"
